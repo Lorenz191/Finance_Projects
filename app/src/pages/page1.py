@@ -1,5 +1,5 @@
 import streamlit as st
-from ..utils import Page, BlackScholes, get_parameters
+from ..utils import Page, BlackScholes, get_parameters, check_ticker
 import datetime
 import requests
 import numpy as np
@@ -24,13 +24,11 @@ class Page1(Page):
         # Check for valid ticker symbol
         if selected_ticker:
             try:
-                stock_info = yf.Ticker(selected_ticker).info
-                if stock_info.get("trailingPegRatio") is None:
+                if not check_ticker(selected_ticker):
                     st.error("Invalid ticker symbol. Please try again.")
                 else:
                     st.success("Valid ticker symbol.")
 
-                    # Option parameters
                     with st.expander("Option Parameters"):
                         st.write("Enter the option parameters:")
                         input_date = st.date_input("Maturity date", min_value=datetime.date.today())

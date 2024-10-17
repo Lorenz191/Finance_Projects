@@ -4,6 +4,7 @@ import datetime
 import yfinance as yf
 import datetime
 import requests
+import streamlit as st
 
 
 class Page(object):
@@ -93,3 +94,13 @@ def get_parameters(ticker, maturity_date: datetime.date):
         't': years_to_maturity,
         'delta': dividend_yield
     }
+
+def check_ticker(symbol):
+    try:
+        stock = yf.Ticker(symbol).info
+        if not stock or stock.get("trailingPegRatio") is None:
+            return False
+        return True
+    except Exception as e:
+        print(f"Error fetching data for symbol {symbol}: {e}")
+        return False
