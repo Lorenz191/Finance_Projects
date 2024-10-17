@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "finance-projects"
+version = "0.1.0"
+description = ""
+authors = ["Lorenz191 <144610453+Lorenz191@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+streamlit = "^1.39.0"
+yfinance = "^0.2.44"
+scipy = "^1.14.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
