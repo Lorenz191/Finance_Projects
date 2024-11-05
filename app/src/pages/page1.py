@@ -1,16 +1,14 @@
 import streamlit as st
-from ..utils import Page, BlackScholes, get_parameters, check_ticker
+from ..utils.utils import Page, get_parameters, check_ticker
+from ..utils.black_schols import BlackScholes
 import datetime
-import requests
-import numpy as np
-import pandas as pd
-import yfinance as yf
+
 
 
 
 class Page1(Page):
     def write(self):
-        st.title(":blue[Option Price Calculator]")
+        st.title(":blue[Black Sholes]")
         st.write(
             "This app calculates the price of European call or put options using the Black Scholes formula."
         )

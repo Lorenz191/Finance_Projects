@@ -1,12 +1,12 @@
 from attr.validators import disabled
 
-from ..utils import Page, check_ticker
+from ..utils.utils import Page, check_ticker
 import streamlit as st
 
 class Page2(Page):
 
     def write(self):
-        st.title(":blue[Sentiment Analysis]")
+        st.title(":blue[Monte Carlo]")
 
         exchange = st.selectbox("Select the exchange:", ["NYSE"])
 
@@ -18,5 +18,3 @@ class Page2(Page):
             else:
                 st.success("Valid ticker symbol.")
 
-                st.subheader(":blue[Please select a platform and a time span for the sentiment analysis!]")
-                st.selectbox("Platform:", ["X", "Facebook", "Threads", "Reddit"])
